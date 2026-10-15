@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ .Site.Title }}</title>
+</head>
+<body>
+  <h1>{{ .Site.Params.creator.name }}</h1>
+
+  {{ with .Site.Params.creator.avatar }}
+    <img src="{{ . }}" alt="avatar" width="200">
+  {{ end }}
+
+  <p>{{ .Site.Params.school }}</p>
+  <p>Year: {{ .Site.Params.year }}</p>
+  <p>{{ .Site.Params.dedication }}</p>
+
+  <h2>Personal Introduction</h2>
+  <p>{{ .Site.Params.personal_introduction }}</p>
+
+  <h2>Area of Interest</h2>
+  <p>{{ .Site.Params.area_of_interest }}</p>
+
+  <h2>Projects</h2>
+  <pre>{{ .Site.Params.projects }}</pre>
+
+  <h2>Academic Acknowledgements</h2>
+  <ul>
+    {{ range .Site.Params.academic_acknowledgements }}
+      <li>{{ .name }} — {{ .title }}</li>
+    {{ end }}
+  </ul>
+
+  <h2>Personal Acknowledgements</h2>
+  <ul>
+    {{ range .Site.Params.personal_acknowledgements }}
+      <li>{{ .name }} — {{ .title }}</li>
+    {{ end }}
+  </ul>
+</body>
+</html>
